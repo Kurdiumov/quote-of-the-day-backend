@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: "https://kurdiumov.github.io/quote-of-the-day",
+  origin: "https://kurdiumov.github.io",
   optionsSuccessStatus: 200
 };
 
