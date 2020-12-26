@@ -10,6 +10,10 @@ const corsOptions = {
   optionsSuccessStatus: 200
 };
 
+app.get("/", async (req, res) => {
+  res.send("Hello from quote of the day backend.");
+});
+
 app.get("/imageUrl", cors(corsOptions), async (req, res) => {
   const width = req.query.width ? req.query.width : 1024;
   const height = req.query.height ? req.query.height : 768;
