@@ -1,0 +1,34 @@
+{
+  "name": "quote-of-the-day-backend",
+  "version": "1.0.0",
+  "description": "A proxy backend for app of the day app.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurdiumov/quote-of-the-day-backend.git"
+  },
+  "keywords": [
+    "backend",
+    "proxy",
+    "express",
+    "API"
+  ],
+  "author": "Rostyslav Kurdiumov <rostyslav.kurdiumov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kurdiumov/quote-of-the-day-backend/issues"
+  },
+  "homepage": "https://github.com/Kurdiumov/quote-of-the-day-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.16.0"
+  }
+}
