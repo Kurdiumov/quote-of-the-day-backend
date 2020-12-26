@@ -1,6 +1,6 @@
 # Backend for Quote of the day
 
-Backend is used as a proxy for [Quote of the day](https://kurdiumov.github.io/quote-of-the-day/) application.
+Backend is used as a proxy for [Quote of the day](https://github.com/Kurdiumov/quote-of-the-day) application.
 There are two endpoints:
  - **GET _/quote_** - Fetches _quote of the day_ from [Paper Quotes API](http://paperquotes.com/).
  - **GET _/ImageUrl_** - Fetches image data from [Unsplash.com API](https://unsplash.com/developers) and returns image url with custom size.
