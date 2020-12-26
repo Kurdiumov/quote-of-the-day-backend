@@ -25,7 +25,14 @@ Start express server using the following command:
 npm run start
 ```
 
-Server will be started by defaullt on port 5000.
+Server will be started by default on port 5000.
+
+API keys should be obtained and configured for Paper Quotes and Unsplash services. Create **_.env_** file in root folder and insert the following settings replacing values with your API keys:
+
+<pre>
+UNSPLASH_API_KEY=<b>Your Unsplash API key</b>
+PAPER_QUOTES_API_KEY=<b>Your Paper Quotes API key</b>
+</pre>
 
 ## Built with
 <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white"/> <img src="https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge"/> <img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/>
