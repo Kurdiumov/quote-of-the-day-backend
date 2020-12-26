@@ -1,8 +1,66 @@
+require("dotenv-safe").config();
 const express = require("express");
+const fetch = require("node-fetch");
 const app = express();
+const port = 3000;
 
-app.get("/", (req, res) => {
-    res.send("Hello from localhost");
+app.get("/imageUrl", async (req, res) => {
+  const width = req.query.width ? req.query.width : 1024;
+  const height = req.query.height ? req.query.height : 768;
+  const collections = "804449,1242150,9545968";
+
+  try {
+    const response = await fetch(
+      `https://api.unsplash.com/photos/random/?collections=${collections}&client_id=${process.env.UNSPLASH_API_KEY}&w=${width}&h=${height}`
+    );
+
+    const json = await response.json();
+    if (response.ok) {
+      return res.status(200).json({
+        success: true,
+        imageUrl: json.urls.custom
+      });
+    }
+
+    throw new Error(JSON.stringify(json));
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: err.message
+    });
+  }
 });
 
-app.listen(3000, () => console.log("Listening on port 3000..."));
+app.get(" /quote", async (req, res) => {
+  try {
+    const response = await fetch(
+      "https://api.paperquotes.com/apiv1/qod/?lang=en",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Token ${process.env.PAPER_QUOTES_API_KEY}`
+        }
+      }
+    );
+
+    const json = await response.json();
+    if (response.ok) {
+      return res.status(200).json({
+        success: true,
+        result: {
+          author: json.author,
+          quote: json.quote
+        }
+      });
+    }
+
+    throw new Error(JSON.stringify(json));
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: err.message
+    });
+  }
+});
+
+app.listen(port, () => console.log(`Listening on port ${port}...`));
