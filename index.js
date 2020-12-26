@@ -1,10 +1,16 @@
 require("dotenv-safe").config();
 const express = require("express");
 const fetch = require("node-fetch");
+const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
-app.get("/imageUrl", async (req, res) => {
+const corsOptions = {
+  origin: "https://kurdiumov.github.io/quote-of-the-day",
+  optionsSuccessStatus: 200
+};
+
+app.get("/imageUrl", cors(corsOptions), async (req, res) => {
   const width = req.query.width ? req.query.width : 1024;
   const height = req.query.height ? req.query.height : 768;
   const collections = "804449,1242150,9545968";
@@ -31,7 +37,7 @@ app.get("/imageUrl", async (req, res) => {
   }
 });
 
-app.get("/quote", async (req, res) => {
+app.get("/quote", cors(corsOptions), async (req, res) => {
   try {
     const response = await fetch(
       "https://api.paperquotes.com/apiv1/qod/?lang=en",
