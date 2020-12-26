@@ -2,7 +2,7 @@ require("dotenv-safe").config();
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/imageUrl", async (req, res) => {
   const width = req.query.width ? req.query.width : 1024;
@@ -31,7 +31,7 @@ app.get("/imageUrl", async (req, res) => {
   }
 });
 
-app.get(" /quote", async (req, res) => {
+app.get("/quote", async (req, res) => {
   try {
     const response = await fetch(
       "https://api.paperquotes.com/apiv1/qod/?lang=en",
